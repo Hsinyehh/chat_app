@@ -58,7 +58,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 fun TextView.bindType( item: MarsProperty?) {
     item?.let{
         when(it.isRental) {
-            true -> { text="For Rental" }
+            true -> { text="For Rent" }
             false -> { text="For Sale" }
         }
     }
