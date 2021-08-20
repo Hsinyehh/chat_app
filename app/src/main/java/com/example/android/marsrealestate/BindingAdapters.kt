@@ -22,7 +22,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -55,8 +54,25 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-fun bindType(textView: TextView, imgUrl: String?){
+@BindingAdapter("marsType")
+fun TextView.bindType( item: MarsProperty?) {
+    item?.let{
+        when(it.isRental) {
+            true -> { text="For Rental" }
+            false -> { text="For Sale" }
+        }
+    }
+}
 
+@BindingAdapter("marsPrice")
+fun TextView.bindPrice( item: MarsProperty?) {
+    item?.let{
+        var priceFormat=String.format("\$%,.0f", it.price)
+        when(it.isRental) {
+            true -> { text="${priceFormat}/month" }
+            false -> { text="${priceFormat}" }
+        }
+    }
 }
 
 /**
