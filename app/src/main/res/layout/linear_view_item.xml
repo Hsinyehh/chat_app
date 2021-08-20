@@ -24,6 +24,9 @@
         <variable
             name="property"
             type="com.example.android.marsrealestate.network.MarsProperty" />
+        <variable
+            name="viewModel"
+            type="com.example.android.marsrealestate.detail.DetailViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -55,6 +58,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="340dp"
             android:layout_marginBottom="10dp"
+            android:text="@{viewModel.displayPropertyType}"
             app:layout_constraintBottom_toTopOf="@+id/mars_price"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +74,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="340dp"
             android:layout_marginBottom="20dp"
+            android:text="@{viewModel.displayPropertyPrice}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
